@@ -1,6 +1,6 @@
 # Force-Update
 [![Release](https://jitpack.io/v/User/Repo.svg)]
-(https://jitpack.io/worldsnas/Force-Update)
+(https://jitpack.io/#worldsnas/Force-Update)
 
 Small library for app force update
 
@@ -33,7 +33,7 @@ any leaks.
 new ForceUpdate(versionCode, "version check url", getApplicationContext()).run();
 ```
 
-##Server Side
+## Server Side
 
 on the server side you have to make sure the response returned from the check version url is like the one below
 
