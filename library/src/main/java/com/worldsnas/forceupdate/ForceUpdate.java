@@ -112,7 +112,7 @@ public class ForceUpdate implements Runnable {
                     protected void completed(BaseDownloadTask task) {
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setDataAndType(Uri.fromFile(new File(task.getPath())), "application/vnd.android.package-archive");
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         if (mContext != null)
                             mContext.startActivity(intent);
                         mContext = null;
