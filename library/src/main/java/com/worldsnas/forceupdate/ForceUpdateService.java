@@ -177,8 +177,9 @@ public class ForceUpdateService extends IntentService {
     }
 
     private void installAPK(File downloadFile){
-        Intent promptInstall = new Intent(Intent.ACTION_VIEW).setDataAndType(Uri.fromFile(downloadFile), "application/vnd.android.package-archive");
-        startActivity(promptInstall);
-        stopSelf();
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setDataAndType(Uri.fromFile(downloadFile), "application/vnd.android.package-archive");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }
