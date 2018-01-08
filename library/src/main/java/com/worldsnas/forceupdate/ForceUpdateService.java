@@ -78,8 +78,10 @@ public class ForceUpdateService extends IntentService {
                     }
                 }
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            Log.e(FORCE_UPDATE_SERVICE, "service stopped with error");
+            Log.e(FORCE_UPDATE_SERVICE, e.toString());
         }
     }
 
