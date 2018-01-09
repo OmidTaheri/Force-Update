@@ -1,11 +1,13 @@
 package com.worldsnas.forceupdate;
 
 import android.annotation.SuppressLint;
+import android.app.Application;
 import android.app.IntentService;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.util.Log;
 
 import java.io.File;
@@ -181,5 +183,6 @@ public class ForceUpdateService extends IntentService {
         intent.setDataAndType(Uri.fromFile(downloadFile), "application/vnd.android.package-archive");
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        System.exit(0);
     }
 }
