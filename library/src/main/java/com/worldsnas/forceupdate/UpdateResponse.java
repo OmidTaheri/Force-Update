@@ -14,6 +14,8 @@ public class UpdateResponse implements Parcelable {
     private String apkUrl;
     @SerializedName("your_version")
     private int your_version;
+    @SerializedName("force_update")
+    private int force_update;
 
     public UpdateResponse() {
     }
@@ -57,6 +59,14 @@ public class UpdateResponse implements Parcelable {
         this.your_version = your_version;
     }
 
+    public int getForce_update() {
+        return force_update;
+    }
+
+    public void setForce_update(int force_update) {
+        this.force_update = force_update;
+    }
+
     @Override
     public String toString() {
         return "UpdateResponse{" +
@@ -64,8 +74,10 @@ public class UpdateResponse implements Parcelable {
                 ", latestVersion=" + latestVersion +
                 ", apkUrl='" + apkUrl + '\'' +
                 ", your_version=" + your_version +
+                ", force_update=" + force_update +
                 '}';
     }
+
 
     @Override
     public int describeContents() {
@@ -78,6 +90,7 @@ public class UpdateResponse implements Parcelable {
         dest.writeInt(this.latestVersion);
         dest.writeString(this.apkUrl);
         dest.writeInt(this.your_version);
+        dest.writeInt(this.force_update);
     }
 
     private UpdateResponse(Parcel in) {
@@ -85,13 +98,16 @@ public class UpdateResponse implements Parcelable {
         this.latestVersion = in.readInt();
         this.apkUrl = in.readString();
         this.your_version = in.readInt();
+        this.force_update = in.readInt();
     }
 
-    public static final Creator<UpdateResponse> CREATOR = new Creator<UpdateResponse>() {
+    public static final Parcelable.Creator<UpdateResponse> CREATOR = new Parcelable.Creator<UpdateResponse>() {
+        @Override
         public UpdateResponse createFromParcel(Parcel source) {
             return new UpdateResponse(source);
         }
 
+        @Override
         public UpdateResponse[] newArray(int size) {
             return new UpdateResponse[size];
         }

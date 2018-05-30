@@ -1,13 +1,11 @@
 package com.worldsnas.forceupdate;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
 import android.app.IntentService;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.Settings;
 import android.util.Log;
 
 import java.io.File;
@@ -47,7 +45,8 @@ public class ForceUpdateService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Bundle extras = intent.getExtras();
-        if (extras == null || !extras.containsKey(VERSION_CHECK_URL) || !extras.containsKey(CURRENT_VERSION))
+        if (extras == null || !extras.containsKey(VERSION_CHECK_URL) || !extras.containsKey(CURRENT_VERSION) ||
+                extras.getString(VERSION_CHECK_URL, null) == null)
             stopSelf();
 
         String checkUrl = extras.getString(VERSION_CHECK_URL);
@@ -57,7 +56,7 @@ public class ForceUpdateService extends IntentService {
         try {
             Response<UpdateResponse> checkVersionResponse = prepareCheckVersion(checkUrl, currentVersion).execute();
 
-            if (!isUpToDate(checkVersionResponse)) {
+            if (!forceUpdate(checkVersionResponse)) {
                 stopSelf();
                 return;
 
@@ -88,8 +87,8 @@ public class ForceUpdateService extends IntentService {
     }
 
     @SuppressWarnings("ConstantConditions")
-    private boolean isUpToDate(Response<UpdateResponse> response) {
-        return response.isSuccessful() && response.body() != null && response.body().getNeedsUpdate() == 1;
+    private boolean forceUpdate(Response<UpdateResponse> response) {
+        return response.isSuccessful() && response.body() != null && response.body().getForce_update() == 1;
     }
 
     private boolean isDownloadResponseValid(Response<ResponseBody> downloadResponse) {
@@ -99,7 +98,9 @@ public class ForceUpdateService extends IntentService {
 
     private Call<UpdateResponse> prepareCheckVersion(String checkUrl, int currentVersion) {
         HttpUrl url = HttpUrl.parse(checkUrl);
-
+        if (url != null) {
+            url = url.newBuilder().addQueryParameter("version", String.valueOf(currentVersion)).build();
+        }
         return new Retrofit.Builder()
                 .baseUrl("http://google.com")
                 .addConverterFactory(GsonConverterFactory.create())

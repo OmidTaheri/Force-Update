@@ -8,8 +8,8 @@ android {
         minSdkVersion 14
         //noinspection OldTargetApi
         targetSdkVersion 25
-        versionCode 140200001
-        versionName "2.0.1"
+        versionCode 140200101
+        versionName "2.1.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -29,7 +29,9 @@ dependencies {
 
 //    implementation 'com.android.support:appcompat-v7:25.+'
     testImplementation 'junit:junit:4.12'
+    //noinspection GradleDependency
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    //noinspection GradleDependency
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 

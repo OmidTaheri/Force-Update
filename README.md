@@ -19,13 +19,12 @@ allprojects {
 		}
 	}
 dependencies {
-	        compile 'com.github.worldsnas:Force-Update:2.0.0'
+	        compile 'com.github.worldsnas:Force-Update:2.1.1'
 	}
 ```
 
 ## Getting Started
-for performance and other problems core downloader changed to IntentService therefore no nned for context any more
-to run the service you need to pass a bundle to to the firing intent containing two fields:
+for performance and other problems core downloader changed to IntentService therefore.
 
 String version_check_url : the url needed to check the version
 int current_version : current version code of the app
@@ -34,14 +33,7 @@ int current_version : current version code of the app
 
 ```java
 
-Intent firstCheckDownload = new Intent(Intent.ACTION_SYNC, null, MainActivity.this, ForceUpdateService.class);
-                Bundle bundle = new Bundle();
-
-                bundle.putString(VERSION_CHECK_URL, "http://example.com/version_check");
-                bundle.putInt(CURRENT_VERSION, 1);
-
-                firstCheckDownload.putExtras(bundle);
-                startService(firstCheckDownload);
+    ForceUpdate.start(Context, "version check url", current_version);
 
 ```
 
@@ -51,14 +43,15 @@ on the server side you have to make sure the version check endpoint is a POST Re
 
 ```json
 {
-"uptodate": 1,
 "latest_version": 180100001,
 "apk_url": "url to download latest version from",
-"your_version": 5
+"your_version": 5,
+"force_update":1
 }
 ```
 
-which 'uptodate' is the key to force your app update or not
+which 'force_update' is the key to force your app update or not.
+so if force_update is equal to 1 app start force updating and vice versa.
 
 
 any contribute is appreciated
