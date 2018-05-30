@@ -1,11 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.worldsnas.forceupdate" >
+    package="com.worldsnas.forceupdate">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application>
-        <service android:name=".ForceUpdateService"
-            android:exported="false"/>
+        <service
+            android:name=".ForceUpdateService"
+            android:exported="false" />
+
+        <activity android:name=".activity.ForceUpdateActivity"
+            android:configChanges="orientation|keyboardHidden"/>
     </application>
 
 </manifest>

@@ -27,7 +27,7 @@ public class UpdateResponse implements Parcelable {
         this.your_version = your_version;
     }
 
-    String getApkUrl() {
+    public String getApkUrl() {
         return apkUrl;
     }
 
