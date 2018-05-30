@@ -36,6 +36,28 @@ int current_version : current version code of the app
     ForceUpdate.start(Context, "version check url", current_version);
 
 ```
+to check and download and show package installer in the background
+
+or
+```java
+
+    ForceUpdate.startActivity(activity, "version check url", current_version);
+
+        @Override
+            protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+                super.onActivityResult(requestCode, resultCode, data);
+
+                if (Constants.REQUEST_CODE_FORCE_UPDATE == requestCode) {
+                    if (resultCode == Constants.RESULT_UPTODATE) {
+        //uptodate
+                    } else{
+                    // something failed you can check other result codes
+                        finish();
+                    }
+                }
+
+            }
+```
 
 ## Server Side
 
