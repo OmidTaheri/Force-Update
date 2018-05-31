@@ -1,6 +1,5 @@
 # Force-Update
-[![Release](https://jitpack.io/v/User/Repo.svg)]
-(https://jitpack.io/#worldsnas/Force-Update)
+[![](https://jitpack.io/v/worldsnas/Force-Update.svg)](https://jitpack.io/#worldsnas/Force-Update)
 
 Small library for app force update
 
@@ -19,7 +18,7 @@ allprojects {
 		}
 	}
 dependencies {
-	        compile 'com.github.worldsnas:Force-Update:2.1.1'
+	        compile 'com.github.worldsnas:Force-Update:latest_version'
 	}
 ```
 
