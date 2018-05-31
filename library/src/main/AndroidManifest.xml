@@ -10,7 +10,8 @@
             android:exported="false" />
 
         <activity android:name=".activity.ForceUpdateActivity"
-            android:configChanges="orientation|keyboardHidden"/>
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/Transparent"/>
     </application>
 
 </manifest>
