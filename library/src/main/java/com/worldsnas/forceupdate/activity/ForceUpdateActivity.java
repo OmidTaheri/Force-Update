@@ -93,7 +93,7 @@ public class ForceUpdateActivity extends AppCompatActivity implements ForceUpdat
         LayoutInflater layoutInflaterAndroid = LayoutInflater.from(this);
         @SuppressLint("InflateParams") View mView = layoutInflaterAndroid.inflate(R.layout.dialog_download, null);
 
-        new AlertDialog.Builder(this)
+        new AlertDialog.Builder(this , R.style.AlertDialogCustom)
                 .setView(mView)
                 .setCancelable(false)
                 .setPositiveButton("دانلود", new DialogInterface.OnClickListener() {
