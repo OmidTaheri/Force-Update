@@ -12,6 +12,7 @@ import com.worldsnas.forceupdate.ForceUpdate;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        ForceUpdate.startActivity(this, "http://learnic.net/api/v1/latest_version", 1);
+        ForceUpdate.startActivity(this, "http://example url", 1);
     }
 
-    private void startDownloading(){
+    private void startDownloading() {
         Bundle extras = new Bundle();
-        extras.putString("","");
+        extras.putString("", "");
 
     }
 
