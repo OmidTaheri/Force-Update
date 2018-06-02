@@ -15,6 +15,7 @@
     <style name="AlertDialogCustom" parent="@android:style/Theme.Dialog">
         <item name="android:textColor">#151313</item>
         <item name="android:textSize">13sp</item>
+        <item name="android:background">#ffffff</item>
     </style>
 
 

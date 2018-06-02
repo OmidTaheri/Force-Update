@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ll_dialog_add_comment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/ll_dialog_add_comment"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="16dp"
+              android:background="@android:color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="بروز رسانی"
-            android:textSize="16sp"
-            android:layout_toLeftOf="@+id/img_dialog_alert"
             android:layout_centerVertical="true"
-            android:layout_marginRight="8dp"/>
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/img_dialog_alert"
+            android:text="بروز رسانی"
+            android:textSize="16sp"/>
+
         <ImageView
             android:id="@+id/img_dialog_alert"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_warning_yellow_24dp"
             android:layout_alignParentRight="true"
-            tools:ignore="ContentDescription" />
+            android:src="@drawable/ic_warning_yellow_24dp"
+            tools:ignore="ContentDescription"/>
     </RelativeLayout>
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="ورژن جدیدی برای برنامه موجود است آیا می خواهید اکنون دانلود کنید؟"
-        android:textSize="13sp"
-        android:layout_marginTop="8dp"/>
+        android:textSize="13sp"/>
 </LinearLayout>

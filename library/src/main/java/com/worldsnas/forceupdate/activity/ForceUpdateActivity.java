@@ -96,6 +96,7 @@ public class ForceUpdateActivity extends AppCompatActivity implements ForceUpdat
         new AlertDialog.Builder(this , R.style.AlertDialogCustom)
                 .setView(mView)
                 .setCancelable(false)
+
                 .setPositiveButton("دانلود", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialogBox, int id) {
                         dialogBox.dismiss();
